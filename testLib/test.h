@@ -6,7 +6,6 @@
 namespace Test{
       bool istrue(bool thing);
       bool isfalse(bool thing);
-      void tester(void(*f)());
       
       template<typename T>
       bool expectate(T thing, T expect){

@@ -23,7 +23,3 @@ bool Test::isfalse(bool thing){
             return false;
       }
 }
-
-void Test::tester(void(*f)()){
-      f();
-}

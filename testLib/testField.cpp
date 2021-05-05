@@ -15,5 +15,5 @@ void test(){//you need to pass this test function into tester
 
 void Test::call(){
       //tester(your test);
-      tester(test);//call it here
+      test();//call it here
 }
