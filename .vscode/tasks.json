@@ -1,0 +1,68 @@
+{
+      "tasks": [
+            //you can compile another file at here too
+            {
+                  "type": "shell",
+                  "label": "test",
+                  "command": "/usr/bin/g++",
+                  "args": [
+                        "-c",
+                        "./testLib/test.cpp",
+                        "-o",
+                        "./testLib/obj/test.o"
+                  ],
+            },
+            {
+                  "type": "shell",
+                  "label": "testField",
+                  "command": "/usr/bin/g++",
+                  "args": [
+                        "-c",
+                        "./testLib/testField.cpp",
+                        "-o",
+                        "./testLib/obj/testField.o"
+                  ],
+            },
+            {
+                  "type": "shell",
+                  "label": "main",
+                  "command": "/usr/bin/g++",
+                  "args": [
+                        "-c",
+                        "./main.cpp",
+                        "-o",
+                        "./testLib/obj/main.o"
+                  ]
+            },
+            {
+                  "type": "shell",
+                  "label": "build",
+                  "command": "/usr/bin/g++",
+                  "args": [
+                        "-g",
+                        "./testLib/obj/*.o",
+                        "-o",
+                        "./app"
+                  ]
+            },
+            {
+                  "type": "shell",
+                  "label": "run unit test",
+                  "command": "./app",
+                  "dependsOn": [
+                        //add your own cpp file here
+                        "test",
+                        "testField",
+                        "main",
+                        "build"
+                  ],
+                  "dependsOrder": "sequence",
+                  "group": {
+                        "kind": "build",
+                        "isDefault": true
+                  },
+                  "problemMatcher": []
+            }
+      ],
+      "version": "2.0.0"
+}
